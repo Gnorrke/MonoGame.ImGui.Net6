@@ -182,11 +182,10 @@ public class ImGuiRenderer
         var io = ImGuiNET.ImGui.GetIO();
         var displaySize = io.DisplaySize;
 
-        const float offset = 0.5f;
         _effect.World = Matrix.Identity;
         _effect.View = Matrix.Identity;
-        _effect.Projection = Matrix.CreateOrthographicOffCenter(offset, displaySize.X + offset,
-            displaySize.Y + offset, offset, -1.0f, 1.0f);
+        _effect.Projection = Matrix.CreateOrthographicOffCenter(0f, displaySize.X,
+            displaySize.Y, 0f, -1.0f, 1.0f);
         _effect.TextureEnabled = true;
         _effect.Texture = texture;
         _effect.VertexColorEnabled = true;
